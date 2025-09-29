@@ -80,8 +80,6 @@ release:
 dockers:
   - image_templates:
       - 'docker.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-amd64'
-      - 'ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-amd64'
-      - 'quay.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-amd64'
     ids: [gitlab-ci-pipelines-exporter]
     goarch: amd64
     use: buildx
@@ -98,8 +96,6 @@ dockers:
 
   - image_templates:
       - 'docker.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-arm64'
-      - 'ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-arm64'
-      - 'quay.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-arm64'
     ids: [gitlab-ci-pipelines-exporter]
     goarch: arm64
     use: buildx
@@ -116,8 +112,6 @@ dockers:
 
   - image_templates:
       - 'docker.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-armv6'
-      - 'ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-armv6'
-      - 'quay.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-armv6'
     ids: [gitlab-ci-pipelines-exporter]
     goarch: arm
     goarm: 6
@@ -135,8 +129,6 @@ dockers:
 
   - image_templates:
       - 'docker.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-armv7'
-      - 'ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-armv7'
-      - 'quay.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-armv7'
     ids: [gitlab-ci-pipelines-exporter]
     goarch: arm
     goarm: 7
@@ -159,20 +151,6 @@ docker_manifests:
       - docker.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-arm64
       - docker.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-armv6
       - docker.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-armv7
-
-  - name_template: ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:latest
-    image_templates:
-      - ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-amd64
-      - ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-arm64
-      - ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-armv6
-      - ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-armv7
-
-  - name_template: quay.io/mvisonneau/gitlab-ci-pipelines-exporter:latest
-    image_templates:
-      - quay.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-amd64
-      - quay.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-arm64
-      - quay.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-armv6
-      - quay.io/mvisonneau/gitlab-ci-pipelines-exporter:latest-armv7
 
 signs:
   - artifacts: checksum

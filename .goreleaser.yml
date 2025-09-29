@@ -100,8 +100,6 @@ scoops:
 dockers:
   - image_templates:
       - 'docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-amd64'
-      - 'ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-amd64'
-      - 'quay.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-amd64'
     ids: [gitlab-ci-pipelines-exporter]
     goarch: amd64
     use: buildx
@@ -118,8 +116,6 @@ dockers:
 
   - image_templates:
       - 'docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-arm64'
-      - 'ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-arm64'
-      - 'quay.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-arm64'
     ids: [gitlab-ci-pipelines-exporter]
     goarch: arm64
     use: buildx
@@ -136,8 +132,6 @@ dockers:
 
   - image_templates:
       - 'docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv6'
-      - 'ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv6'
-      - 'quay.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv6'
     ids: [gitlab-ci-pipelines-exporter]
     goarch: arm
     goarm: 6
@@ -155,8 +149,6 @@ dockers:
 
   - image_templates:
       - 'docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv7'
-      - 'ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv7'
-      - 'quay.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv7'
     ids: [gitlab-ci-pipelines-exporter]
     goarch: arm
     goarm: 7
@@ -179,20 +171,6 @@ docker_manifests:
       - docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-arm64
       - docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv6
       - docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv7
-
-  - name_template: ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}
-    image_templates:
-      - ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-amd64
-      - ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-arm64
-      - ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv6
-      - ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv7
-
-  - name_template: quay.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}
-    image_templates:
-      - quay.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-amd64
-      - quay.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-arm64
-      - quay.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv6
-      - quay.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv7
 
 checksum:
   name_template: '{{ .ProjectName }}_{{ .Tag }}_sha512sums.txt'
