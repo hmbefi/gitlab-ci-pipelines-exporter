@@ -184,7 +184,11 @@ func (c *Controller) ProcessJobMetrics(ctx context.Context, ref schemas.Ref, job
 	)
 
 	if job.Status == "failed" && job.Commit != "" {
-		labels["commit"] = job.Commit
+		failedJobLabels := make(map[string]string)
+		for k, v := range labels {
+			failedJobLabels[k] = v
+		}
+		failedJobLabels["commit"] = job.Commit
 
 		failedJobsCount := schemas.Metric{
 			Kind:   schemas.MetricKindFailedJobsCount,
