@@ -10,6 +10,7 @@ import (
 type Job struct {
 	ID                    int
 	Name                  string
+	Commit                string
 	Stage                 string
 	Timestamp             float64
 	DurationSeconds       float64
@@ -45,8 +46,15 @@ func NewJob(gj goGitlab.Job) Job {
 	}
 
 	return Job{
-		ID:                    gj.ID,
-		Name:                  gj.Name,
+		ID:   gj.ID,
+		Name: gj.Name,
+		Commit: func() string {
+			if gj.Commit != nil {
+				return gj.Commit.ID
+			}
+
+			return ""
+		}(),
 		Stage:                 gj.Stage,
 		Timestamp:             timestamp,
 		DurationSeconds:       gj.Duration,

@@ -15,6 +15,7 @@ func TestNewJob(t *testing.T) {
 	gitlabJob := goGitlab.Job{
 		ID:             2,
 		Name:           "foo",
+		Commit:         &goGitlab.Commit{},
 		CreatedAt:      &createdAt,
 		StartedAt:      &startedAt,
 		Duration:       15,
