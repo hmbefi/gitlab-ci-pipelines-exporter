@@ -37,7 +37,7 @@ nfpms:
   - maintainer: &author Maxime VISONNEAU <maxime.visonneau@gmail.com>
     description: &description GitLab CI pipelines exporter (prometheus/open-metrics)
     license: &license Apache-2.0
-    homepage: &homepage https://github.com/mvisonneau/gitlab-ci-pipelines-exporter
+    homepage: &homepage https://github.com/hmbefi/gitlab-ci-pipelines-exporter
     vendor: *author
     file_name_template: '{{ .ProjectName }}_{{ .Tag }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
     bindir: /usr/local/bin
@@ -69,7 +69,7 @@ brews:
     license: *license
     folder: Formula
     repository:
-      owner: mvisonneau
+      owner: hmbefi
       name: homebrew-tap
     test: |
       system "#{bin}/{{ .ProjectName }} -v"
@@ -84,7 +84,7 @@ scoops:
     homepage: *homepage
     license: *license
     repository:
-      owner: mvisonneau
+      owner: hmbefi
       name: scoops
 
 # Disabling until https://github.com/canonical/snapcraft/issues/4769 is resolved
@@ -99,7 +99,7 @@ scoops:
 
 dockers:
   - image_templates:
-      - 'docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-amd64'
+      - 'docker.io/hmbefi/gitlab-ci-pipelines-exporter:{{ .Tag }}-amd64'
     ids: [gitlab-ci-pipelines-exporter]
     goarch: amd64
     use: buildx
@@ -107,15 +107,15 @@ dockers:
       - --platform=linux/amd64
       - --label=org.opencontainers.image.title={{ .ProjectName }}
       - --label=org.opencontainers.image.description={{ .ProjectName }}
-      - --label=org.opencontainers.image.url=https://github.com/mvisonneau/gitlab-ci-pipelines-exporter
-      - --label=org.opencontainers.image.source=https://github.com/mvisonneau/gitlab-ci-pipelines-exporter
+      - --label=org.opencontainers.image.url=https://github.com/hmbefi/gitlab-ci-pipelines-exporter
+      - --label=org.opencontainers.image.source=https://github.com/hmbefi/gitlab-ci-pipelines-exporter
       - --label=org.opencontainers.image.version={{ .Version }}
       - --label=org.opencontainers.image.created={{ time "2006-01-02T15:04:05Z07:00" }}
       - --label=org.opencontainers.image.revision={{ .FullCommit }}
       - --label=org.opencontainers.image.licenses=Apache-2.0
 
   - image_templates:
-      - 'docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-arm64'
+      - 'docker.io/hmbefi/gitlab-ci-pipelines-exporter:{{ .Tag }}-arm64'
     ids: [gitlab-ci-pipelines-exporter]
     goarch: arm64
     use: buildx
@@ -123,15 +123,15 @@ dockers:
       - --platform=linux/arm64
       - --label=org.opencontainers.image.title={{ .ProjectName }}
       - --label=org.opencontainers.image.description={{ .ProjectName }}
-      - --label=org.opencontainers.image.url=https://github.com/mvisonneau/gitlab-ci-pipelines-exporter
-      - --label=org.opencontainers.image.source=https://github.com/mvisonneau/gitlab-ci-pipelines-exporter
+      - --label=org.opencontainers.image.url=https://github.com/hmbefi/gitlab-ci-pipelines-exporter
+      - --label=org.opencontainers.image.source=https://github.com/hmbefi/gitlab-ci-pipelines-exporter
       - --label=org.opencontainers.image.version={{ .Version }}
       - --label=org.opencontainers.image.created={{ time "2006-01-02T15:04:05Z07:00" }}
       - --label=org.opencontainers.image.revision={{ .FullCommit }}
       - --label=org.opencontainers.image.licenses=Apache-2.0
 
   - image_templates:
-      - 'docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv6'
+      - 'docker.io/hmbefi/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv6'
     ids: [gitlab-ci-pipelines-exporter]
     goarch: arm
     goarm: 6
@@ -140,15 +140,15 @@ dockers:
       - --platform=linux/arm/v6
       - --label=org.opencontainers.image.title={{ .ProjectName }}
       - --label=org.opencontainers.image.description={{ .ProjectName }}
-      - --label=org.opencontainers.image.url=https://github.com/mvisonneau/gitlab-ci-pipelines-exporter
-      - --label=org.opencontainers.image.source=https://github.com/mvisonneau/gitlab-ci-pipelines-exporter
+      - --label=org.opencontainers.image.url=https://github.com/hmbefi/gitlab-ci-pipelines-exporter
+      - --label=org.opencontainers.image.source=https://github.com/hmbefi/gitlab-ci-pipelines-exporter
       - --label=org.opencontainers.image.version={{ .Version }}
       - --label=org.opencontainers.image.created={{ time "2006-01-02T15:04:05Z07:00" }}
       - --label=org.opencontainers.image.revision={{ .FullCommit }}
       - --label=org.opencontainers.image.licenses=Apache-2.0
 
   - image_templates:
-      - 'docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv7'
+      - 'docker.io/hmbefi/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv7'
     ids: [gitlab-ci-pipelines-exporter]
     goarch: arm
     goarm: 7
@@ -157,20 +157,20 @@ dockers:
       - --platform=linux/arm/v7
       - --label=org.opencontainers.image.title={{ .ProjectName }}
       - --label=org.opencontainers.image.description={{ .ProjectName }}
-      - --label=org.opencontainers.image.url=https://github.com/mvisonneau/gitlab-ci-pipelines-exporter
-      - --label=org.opencontainers.image.source=https://github.com/mvisonneau/gitlab-ci-pipelines-exporter
+      - --label=org.opencontainers.image.url=https://github.com/hmbefi/gitlab-ci-pipelines-exporter
+      - --label=org.opencontainers.image.source=https://github.com/hmbefi/gitlab-ci-pipelines-exporter
       - --label=org.opencontainers.image.version={{ .Version }}
       - --label=org.opencontainers.image.created={{ time "2006-01-02T15:04:05Z07:00" }}
       - --label=org.opencontainers.image.revision={{ .FullCommit }}
       - --label=org.opencontainers.image.licenses=Apache-2.0
 
 docker_manifests:
-  - name_template: docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}
+  - name_template: docker.io/hmbefi/gitlab-ci-pipelines-exporter:{{ .Tag }}
     image_templates:
-      - docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-amd64
-      - docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-arm64
-      - docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv6
-      - docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv7
+      - docker.io/hmbefi/gitlab-ci-pipelines-exporter:{{ .Tag }}-amd64
+      - docker.io/hmbefi/gitlab-ci-pipelines-exporter:{{ .Tag }}-arm64
+      - docker.io/hmbefi/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv6
+      - docker.io/hmbefi/gitlab-ci-pipelines-exporter:{{ .Tag }}-armv7
 
 checksum:
   name_template: '{{ .ProjectName }}_{{ .Tag }}_sha512sums.txt'
