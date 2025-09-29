@@ -6,7 +6,7 @@ on:
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+'
     branches:
-      - main
+      - master
 
 jobs:
   release:
@@ -69,7 +69,7 @@ jobs:
           install-only: true
 
       - name: Run goreleaser
-        run: make ${{ github.ref == 'refs/heads/main' && 'pre' || '' }}release
+        run: make ${{ github.ref == 'refs/heads/master' && 'pre' || '' }}release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_TOKEN }}
