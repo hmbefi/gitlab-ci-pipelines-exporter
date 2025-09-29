@@ -46,9 +46,14 @@ func NewJob(gj goGitlab.Job) Job {
 	}
 
 	return Job{
-		ID:                    gj.ID,
-		Name:                  gj.Name,
-		Commit:                gj.Commit.ID,
+		ID:   gj.ID,
+		Name: gj.Name,
+		Commit: func() string {
+			if gj.Commit != nil {
+				return gj.Commit.ID
+			}
+			return ""
+		}(),
 		Stage:                 gj.Stage,
 		Timestamp:             timestamp,
 		DurationSeconds:       gj.Duration,
