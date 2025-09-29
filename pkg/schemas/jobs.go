@@ -52,6 +52,7 @@ func NewJob(gj goGitlab.Job) Job {
 			if gj.Commit != nil {
 				return gj.Commit.ID
 			}
+
 			return ""
 		}(),
 		Stage:                 gj.Stage,
