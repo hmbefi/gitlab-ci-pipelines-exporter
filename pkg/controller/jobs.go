@@ -192,7 +192,7 @@ func (c *Controller) ProcessJobMetrics(ctx context.Context, ref schemas.Ref, job
 
 		failedJobsCount := schemas.Metric{
 			Kind:   schemas.MetricKindFailedJobsCount,
-			Labels: labels,
+			Labels: failedJobLabels,
 		}
 
 		failedJobsCountExists, err := c.Store.MetricExists(ctx, failedJobsCount.Key())
