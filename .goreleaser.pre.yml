@@ -157,7 +157,7 @@ signs:
     args:
       [
         '-u',
-        'C09CA9F71C5C988E65E3E5FCADEA38EDC46F25BE',
+        'AF3EB30D8C9930888CACD79AE69F55668F9468BC',
         '--output',
         '${signature}',
         '--detach-sign',
