@@ -313,8 +313,8 @@ func NewCollectorJobStatus() prometheus.Collector {
 
 // NewCollectorFailedJobsCount returns a new collector for the gitlab_ci_pipeline_failed_jobs_count metric.
 func NewCollectorFailedJobsCount() prometheus.Collector {
-	return prometheus.NewGaugeVec(
-		prometheus.GaugeOpts{
+	return prometheus.NewCounterVec(
+		prometheus.CounterOpts{
 			Name: "gitlab_ci_pipeline_failed_jobs_count",
 			Help: "Number of failed jobs",
 		},
